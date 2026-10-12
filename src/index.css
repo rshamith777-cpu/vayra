@@ -1,0 +1,155 @@
+/* VAYRA Design System — Atmospheric AI Modern Web Edition */
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Colors from original design specification */
+  --off-white: #f6f5f1;
+  --paper: #fbfaf8;
+  --white: #ffffff;
+  --charcoal: #14171a;
+  --ink-90: #1a1e22;
+  --ink-70: #40454b;
+  --ink-50: #6b7076;
+  --ink-30: #9ba0a6;
+  --line: #e3e1da;
+  --line-light: #ece9e2;
+
+  --navy-950: #070e19;
+  --navy-900: #0b1626;
+  --navy-800: #101f35;
+  --navy-700: #16283f;
+  --navy-600: #1e3a5c;
+
+  --blue: #3a6fe0;
+  --blue-hover: #295bcc;
+  --blue-tint: #eaf0fd;
+
+  --orange: #e38a1c;
+  --orange-tint: #fcefdc;
+  --orange-deep: #9a5b0e;
+
+  --moderate: #e3b23c;
+  --moderate-tint: #fef6de;
+  --moderate-deep: #8a6c0a;
+
+  --red: #d9372e;
+  --red-deep: #b7241d;
+  --red-tint: #fbe9e7;
+  --red-critical: #7e1913;
+
+  --green: #2e8b57;
+  --green-tint: #e7f4ec;
+  --green-deep: #1f6e43;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 3px rgba(11, 22, 38, 0.05), 0 1px 2px rgba(11, 22, 38, 0.03);
+  --shadow-md: 0 4px 12px -2px rgba(11, 22, 38, 0.07), 0 2px 6px -1px rgba(11, 22, 38, 0.04);
+  --shadow-lg: 0 12px 28px -4px rgba(11, 22, 38, 0.12), 0 4px 12px -2px rgba(11, 22, 38, 0.06);
+  --shadow-glow-red: 0 0 24px rgba(217, 55, 46, 0.45);
+  --shadow-glow-orange: 0 0 24px rgba(227, 138, 28, 0.4);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--off-white);
+  color: var(--charcoal);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-30);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-50);
+}
+
+/* Critical Alert Pulse Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 55, 46, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(217, 55, 46, 0);
+  }
+}
+
+@keyframes sirenFlash {
+  0%, 100% {
+    background-color: #8c1c14;
+  }
+  50% {
+    background-color: #aa2218;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-normal) forwards;
+}
+
+/* Leaflet Container customization */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  font-family: var(--font-body) !important;
+}
+
+.custom-map-popup .leaflet-popup-content-wrapper {
+  background: var(--navy-900);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px;
+}
+.custom-map-popup .leaflet-popup-tip {
+  background: var(--navy-900);
+}
